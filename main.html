@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.o">
+        <title>Expense tracker frontend design</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Expense</h2>
+                <nav>
+                    <a href="#" class="active"> Dashboard</a>
+                    <a href="#"> transactions</a>
+                    <a href="#"> Analytics</a>
+                    <a href="#"> Settings</a>
+                </nav>
+            </aside>
+            <main class="main">
+                <header>
+                    <div>
+                        <h1>Dashboard</h1>
+                        <p>Welcome! Here's your finacial overview.</p>
+                    </div>
+                    <button id="addExpenseBtn" class="add-btn"
+                    onclick="openForm()">
+                        +Add Expense
+                    </button>
+                </header>
+                <div id="expenseModal" class="modal">
+                    <div class="modal-content">
+                        <button id="closeModal" class="close-btn">&times;</button>
+                            <h2>Add Expense</h2>
+                            <p class="form-subtitle">Enter your expense details</p>
+                            <form id="expenseForm">
+                                <label for="expenseName">Expense Name</label>
+                                <input
+                                type="text"
+                                id="expenseAmount"
+                                placeholder="Example: Food"
+                                required
+                                >
+                                <label for="expenseAmount">Amount</label>
+                                <input
+                                type="number"
+                                id="expenseAmount"
+                                placeholder="₹500"
+                                required>
+                                <label for="expenseCategory">Category</label>
+                                <select id="expenseCategory" required>
+                                    <option value="">Select category</option>
+                                    <option value="Food">Food</option>
+                                    <option value="Travel">Travel</option>
+                                    <option value="Shopping">Shopping</option>
+                                    <option value="Bills">Bills</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <label for="expenseDate">Date</label>
+                                <input
+                                type="date"
+                                id="expenseDate">
+                                required
+                                >
+                                <button type="submit" class="save-btn">
+                                    Add Expense
+                                </button>
+                            </form>
+                    </div>
+                </div>
+                <section class="cards">
+                    <div class="card">
+                    <p>Total Balance</p>
+                    <h2 id="balance">₹0</h2>
+                    </div>
+                    <div class="card income">
+                        <p>Total Income</p>
+                        <h2 id="income">₹0</h2>
+                    </div>
+                    <div class="card expense">
+                        <p>Total Expenses</p>
+                        <h2 id="expense">₹0</h2>
+                    </div>
+                </section>
+                <section class="charts">
+                    <div class="chat-box">
+                        <h2>Expense Overview</h2>
+                        <div class="fake-chart">
+                            <div style="height:50%"></div>
+                            <div style="height:65%"></div>
+                            <div style="height:80%"></div>
+                            <div style="height:45%"></div>
+                            <div style="height:90%"></div>
+                            <div style="height:75%"></div>
+                        </div>
+                    </div>
+                    <div class="chart-box">
+                        <h2>Categories</h2>
+                        <div class="category">
+                            <span> Food</span>
+                            <strong>₹30000</strong>
+                        </div>
+                        <div class="category">
+                            <span> Travel</span>
+                            <strong>₹20000</strong>
+                        </div> 
+                        <div class="category">
+                            <span> Shopping</span>
+                            <strong>₹4000</strong>
+                        </div> 
+                        <div class="category">
+                            <span> Bills</span>
+                            <strong>₹1200</strong>
+                        </div> 
+                    </div>
+                </section>
+                <section class="transaction">
+                    <div class="transaction-header">
+                        <h2>Recent Trabsaction</h2>
+                        <input 
+                        type="text"
+                        id="search"
+                        placeholder="Search....."
+                        omkeyup="searchTransaction()"
+                        >
+                    </div>
+                    <div id="transactionList">
+                        <div class="transaction">
+                            <div>
+                                <strong>Food</strong>
+                                <p>23 August 2026</p>
+                            </div>
+                            <span class="red">- ₹500</span>
+                        </div>
+                        <div class="transaction">
+                            <div>
+                                <strong>Salary</strong>
+                                <p>22 August 2026</p>
+                            </div>
+                            <span class="green">+ ₹35000</span>
+                        </div>
+                        </div>
+                </section>
+            </main>
+        </div>
+        <div class="modal" id="expensemodal">
+            <div class="modal-content">
+                <span class="close" onclick="closeForm">×</span>
+                <h2>Add Expense</h2>
+                <form id="expenseForm">
+                    <label>Expense Name</label>
+                    <input
+                    type="text"
+                    id="expenseName"
+                    placeholder="Example: Food"
+                    required
+                    >
+                    <label>Android</label>
+                    <input
+                    type="number"+
+                    id="expenseAmount"
+                    placeholder="₹ Amount"
+                    required
+                    >
+                    <label>Category</label>
+                    <select id="expenseCategory">
+                        <option>Food</option>
+                        <option>Travel</option>
+                        <option>Shopping</option>
+                        <option>Bills</option>
+                        <option>Other</option>
+                    </select>
+                    <label>Date</label>
+                    <input
+                    type="date"
+                    id="expenseDate"
+                    required
+                    >
+                    <button type="submit" class="save-btn">
+                        Add Expense
+                    </button>
+              </form>
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+    </html>
